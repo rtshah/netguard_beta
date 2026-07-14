@@ -1,0 +1,61 @@
+{
+  "document": {
+    "source_file": "rx-esi-formulary.pdf",
+    "source_file_hash": "486c20906cec9afc60c2a93e4d1543594c5a8730fc0389ce226c3e0bbf72cc0f",
+    "payer_or_pbm": "Evernorth Health Services",
+    "formulary_name": "National Preferred Formulary For The Ohio State University",
+    "formulary_id": null,
+    "document_type": "unknown",
+    "template_label": null,
+    "effective_start": "2026-01-01",
+    "effective_end": "2026-12-31",
+    "plan_year": 2026,
+    "updated_on": null,
+    "legend": {
+      "INJ": "Injectable Drug",
+      "OTC": "Over-the-counter Product",
+      "SP": "Specialty Drug"
+    },
+    "extraction_confidence": 0.85,
+    "needs_human_review": true,
+    "review_reasons": [
+      "Formulary ID not found (needed to link invoice lines)."
+    ]
+  },
+  "lines": [
+    {
+      "line_id": "SYNTHROID-p22",
+      "drug_name_raw": "SYNTHROID",
+      "drug_name_normalized": "synthroid",
+      "brand_or_generic": "brand",
+      "strength": null,
+      "dosage_form": null,
+      "therapeutic_class": null,
+      "therapeutic_subclass": null,
+      "coverage_status": "excluded",
+      "tier": null,
+      "um_flags": [],
+      "um_detail": null,
+      "footnotes": [],
+      "page_ref": 22,
+      "raw_row_text": "SYNTHROID",
+      "screenshot_path": "/Users/rahulshah/Desktop/ng2/output/screenshots/rx_esi_formulary__SYNTHROID__p22_0acc27.png",
+      "query_drug": "SYNTHROID",
+      "needs_human_review": false,
+      "review_reasons": [],
+      "extraction_confidence": 1.0
+    }
+  ],
+  "exclusions": [
+    {
+      "drug_name_raw": "SYNTHROID",
+      "preferred_alternatives": [],
+      "effective_note": null,
+      "page_ref": 22,
+      "screenshot_path": "/Users/rahulshah/Desktop/ng2/output/screenshots/rx_esi_formulary__SYNTHROID__p22_0acc27.png",
+      "query_drug": "SYNTHROID",
+      "raw_row_text": "SYNTHROID"
+    }
+  ],
+  "warnings": []
+}

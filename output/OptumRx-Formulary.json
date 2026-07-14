@@ -1,0 +1,67 @@
+{
+  "document": {
+    "source_file": "OptumRx-Formulary.pdf",
+    "source_file_hash": "5b4796e64c0a36a2c933a0f980224669e38ded39edc96f513ce411880aa6a26b",
+    "payer_or_pbm": "Optum Rx",
+    "formulary_name": "Premium Standard Formulary",
+    "formulary_id": null,
+    "document_type": "unknown",
+    "template_label": "Premium",
+    "effective_start": "2026-01-01",
+    "effective_end": null,
+    "plan_year": 2026,
+    "updated_on": null,
+    "legend": {
+      "M": "Authorized generic or cobranded product",
+      "PA": "Prior authorization \u2013 Your doctor is required to give Optum Rx more information to determine coverage.",
+      "QL": "Quantity limit \u2013 Medication may be limited to a certain quantity.",
+      "SP": "Specialty medication \u2013 Medication is designated as specialty.",
+      "ST": "Step therapy \u2013 Must try lower-cost medication(s) before a higher-cost medication can be covered",
+      "3P": "Tier 3 preferred",
+      "++": "Benefit design options \u2013 Coverage is determined by your prescription medication benefit plan."
+    },
+    "extraction_confidence": 0.85,
+    "needs_human_review": true,
+    "review_reasons": [
+      "Formulary ID not found (needed to link invoice lines)."
+    ]
+  },
+  "lines": [
+    {
+      "line_id": "SYNTHROID-p44",
+      "drug_name_raw": "SYNTHROID",
+      "drug_name_normalized": "synthroid",
+      "brand_or_generic": "brand",
+      "strength": null,
+      "dosage_form": null,
+      "therapeutic_class": "Hormonal Agents - Thyroid",
+      "therapeutic_subclass": null,
+      "coverage_status": "excluded",
+      "tier": null,
+      "um_flags": [],
+      "um_detail": null,
+      "footnotes": [],
+      "page_ref": 44,
+      "raw_row_text": "SYNTHROID E",
+      "screenshot_path": "/Users/rahulshah/Desktop/ng2/output/screenshots/OptumRx_Formulary__SYNTHROID__p44_8606d1.png",
+      "query_drug": "SYNTHROID",
+      "needs_human_review": false,
+      "review_reasons": [],
+      "extraction_confidence": 0.95
+    }
+  ],
+  "exclusions": [
+    {
+      "drug_name_raw": "SYNTHROID",
+      "preferred_alternatives": [],
+      "effective_note": null,
+      "page_ref": 44,
+      "screenshot_path": "/Users/rahulshah/Desktop/ng2/output/screenshots/OptumRx_Formulary__SYNTHROID__p44_8606d1.png",
+      "query_drug": "SYNTHROID",
+      "raw_row_text": "SYNTHROID E"
+    }
+  ],
+  "warnings": [
+    "'SYNTHROID': Listed under 'Hormonal Agents - Thyroid' with tier 'E', indicating exclusion."
+  ]
+}
