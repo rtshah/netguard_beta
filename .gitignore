@@ -3,5 +3,6 @@ __pycache__/
 *.pyc
 .env
 output/
+eval/reports/
 sample_data/
 .DS_Store

@@ -41,6 +41,14 @@ Output: a per-formulary summary in the terminal, full JSON at `output/<pdf-stem>
 (one file per formulary), and highlighted provenance screenshots in
 `output/screenshots/`.
 
+## Evaluate against ground truth
+
+```bash
+python eval/compare_run.py
+```
+
+Labels: `eval/ground_truth/synthroid.json`. Report: `eval/reports/latest.json`.
+
 ## Configuration (env vars)
 
 | Var | Default | Meaning |
@@ -57,7 +65,7 @@ Output: a per-formulary summary in the terminal, full JSON at `output/<pdf-stem>
 netguard/
   config.py       env/.env, model + render settings
   schema.py       Pydantic models (LLM structured-output + final section-3 result)
-  drug_search.py  find name/aliases -> pages + row bboxes; TOC filter; fuzzy fallback
+  drug_search.py  find name/aliases -> pages + row bboxes (pdfplumber, PyMuPDF fallback)
   render.py       PyMuPDF page -> PNG with highlighted row (provenance artifact)
   llm.py          OpenAI vision structured-output wrapper
   prompts.py      legend/metadata + per-drug extraction prompts

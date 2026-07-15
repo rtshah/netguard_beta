@@ -10,16 +10,16 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from typing import List
+from typing import Iterator, List
 
+import fitz  # PyMuPDF
 import pdfplumber
-from rapidfuzz import fuzz
 
 # A dotted-leader table-of-contents/index line, e.g. "OZEMPIC..........23".
 _TOC_RE = re.compile(r"\.{4,}\s*\d+\s*$")
 _ROW_Y_TOLERANCE = 3.0  # points; words within this vertical gap are one row
 
-
+Word = dict  # keys: text, x0, top, x1, bottom
 BBox = tuple[float, float, float, float]  # (x0, top, x1, bottom) in PDF points
 
 
@@ -54,10 +54,45 @@ class DrugQuery:
 class DrugSearchResult:
     query: DrugQuery
     hits: List[RowHit]
-    used_fuzzy: bool = False
+    search_engine: str = "pdfplumber"  # or "pymupdf" when pdfplumber could not open
 
 
-def _cluster_rows(words: List[dict]) -> List[dict]:
+def _iter_page_words_pdfplumber(pdf_path: str) -> Iterator[tuple[int, List[Word]]]:
+    with pdfplumber.open(pdf_path) as pdf:
+        for i, page in enumerate(pdf.pages):
+            words = page.extract_words(use_text_flow=False, keep_blank_chars=False)
+            if words:
+                yield i, words
+
+
+def _iter_page_words_pymupdf(pdf_path: str) -> Iterator[tuple[int, List[Word]]]:
+    doc = fitz.open(pdf_path)
+    try:
+        for i in range(doc.page_count):
+            raw = doc[i].get_text("words")
+            if not raw:
+                continue
+            words: List[Word] = [
+                {"text": w[4], "x0": w[0], "top": w[1], "x1": w[2], "bottom": w[3]}
+                for w in raw
+            ]
+            if words:
+                yield i, words
+    finally:
+        doc.close()
+
+
+def _iter_page_words(pdf_path: str) -> tuple[Iterator[tuple[int, List[Word]]], str]:
+    """Yield (page_index, words) per page. pdfplumber first; PyMuPDF if that fails."""
+    try:
+        with pdfplumber.open(pdf_path):
+            pass  # probe: pdfplumber must open before we commit to it
+        return _iter_page_words_pdfplumber(pdf_path), "pdfplumber"
+    except Exception:
+        return _iter_page_words_pymupdf(pdf_path), "pymupdf"
+
+
+def _cluster_rows(words: List[Word]) -> List[dict]:
     """Group words into visual rows by their vertical position."""
     rows: List[dict] = []
     for w in sorted(words, key=lambda w: (round(w["top"]), w["x0"])):
@@ -87,23 +122,16 @@ def _cluster_rows(words: List[dict]) -> List[dict]:
 
 
 def _term_matches(term: str, row_text: str) -> bool:
-    # Word-boundary-ish containment, case-insensitive.
     return re.search(re.escape(term), row_text, flags=re.IGNORECASE) is not None
 
 
-def _token_bbox(row_words: List[dict], terms: List[str]) -> BBox | None:
-    """Tight bbox around the specific word(s) in the row that match a term.
-
-    Enables a precise highlight so the vision model can tell WHICH column the drug
-    sits in (e.g. left 'DRUG NAME' vs right 'PREFERRED OPTION') rather than reading
-    the whole row as one entity.
-    """
+def _token_bbox(row_words: List[Word], terms: List[str]) -> BBox | None:
+    """Tight bbox around the specific word(s) in the row that match a term."""
     matched = []
     for w in row_words:
         wt = w["text"].lower().strip(".,;:")
         for t in terms:
             tl = t.lower()
-            # First token of the term is usually the distinctive drug word.
             if tl == wt or tl in wt or (len(tl) >= 5 and tl.split()[0] == wt):
                 matched.append(w)
                 break
@@ -117,37 +145,29 @@ def _token_bbox(row_words: List[dict], terms: List[str]) -> BBox | None:
     )
 
 
-def search_drug(pdf_path: str, query: DrugQuery, fuzzy_threshold: int = 88) -> DrugSearchResult:
-    """Search a PDF for one drug. Falls back to fuzzy matching if no exact hits."""
-    exact: List[RowHit] = []
-    fuzzy: List[RowHit] = []
+def search_drug(pdf_path: str, query: DrugQuery) -> DrugSearchResult:
+    """Search a PDF for one drug (exact match on name + aliases only)."""
+    pages, engine = _iter_page_words(pdf_path)
+    hits: List[RowHit] = []
 
-    with pdfplumber.open(pdf_path) as pdf:
-        for i, page in enumerate(pdf.pages):
-            words = page.extract_words(use_text_flow=False, keep_blank_chars=False)
-            if not words:
+    for i, words in pages:
+        for row in _cluster_rows(words):
+            text = row["text"]
+            if not any(_term_matches(t, text) for t in query.terms):
                 continue
-            for row in _cluster_rows(words):
-                text = row["text"]
-                bbox = (row["x0"], row["top"], row["x1"], row["bottom"])
-                is_toc = bool(_TOC_RE.search(text))
-
-                if any(_term_matches(t, text) for t in query.terms):
-                    tok = _token_bbox(row["words"], query.terms)
-                    exact.append(RowHit(i, text, bbox, 100.0, is_toc, token_bbox=tok))
-                    continue
-
-                # Fuzzy: compare each term against the row using partial ratio.
-                best = max(
-                    (fuzz.partial_ratio(t.lower(), text.lower()) for t in query.terms),
-                    default=0,
+            tok = _token_bbox(row["words"], query.terms)
+            hits.append(
+                RowHit(
+                    i,
+                    text,
+                    (row["x0"], row["top"], row["x1"], row["bottom"]),
+                    100.0,
+                    bool(_TOC_RE.search(text)),
+                    token_bbox=tok,
                 )
-                if best >= fuzzy_threshold:
-                    fuzzy.append(RowHit(i, text, bbox, float(best), is_toc))
+            )
 
-    if exact:
-        return DrugSearchResult(query=query, hits=exact, used_fuzzy=False)
-    return DrugSearchResult(query=query, hits=fuzzy, used_fuzzy=True)
+    return DrugSearchResult(query=query, hits=hits, search_engine=engine)
 
 
 def rank_hits(result: DrugSearchResult, max_pages: int) -> List[RowHit]:
@@ -157,7 +177,6 @@ def rank_hits(result: DrugSearchResult, max_pages: int) -> List[RowHit]:
     picked: List[RowHit] = []
     for h in ordered:
         if h.page_index in seen_pages:
-            # Keep the highest-scoring row per page (already ordered), skip dupes.
             continue
         seen_pages.add(h.page_index)
         picked.append(h)

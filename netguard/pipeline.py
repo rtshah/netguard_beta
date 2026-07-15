@@ -79,16 +79,13 @@ def _extract_drug(
             query_drug=query.name,
             needs_human_review=True,
             review_reasons=[
-                "Drug not located by text search (incl. fuzzy). May be image-only, "
-                "differently named, or absent. Manual review required."
+                "Drug not located by text search. May be image-only, differently "
+                "named, or absent. Manual review required."
             ],
             extraction_confidence=0.0,
         )
         warnings.append(f"'{query.name}': not found by search; flagged for human review.")
         return [line], [], warnings
-
-    if search.used_fuzzy:
-        warnings.append(f"'{query.name}': matched via fuzzy search; verify identity.")
 
     images: List[str] = []
     page_refs: List[int] = []
