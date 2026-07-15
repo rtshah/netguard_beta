@@ -1,4 +1,4 @@
-"""Shared vocabulary for Modules 01–03 (extraction, contracts, invoices)."""
+"""Shared vocabulary for Modules 01–04 (extraction, contracts, invoices, compliance)."""
 
 from __future__ import annotations
 
@@ -12,6 +12,53 @@ class FormularyPosition(str, Enum):
     one_of_3 = "one_of_3"
     preferred = "preferred"
     non_preferred = "non_preferred"
+
+
+class InterpretedPosition(str, Enum):
+    """Placement positions including ambiguous (LLM disagreement / unclear tier)."""
+
+    exclusive = "exclusive"
+    one_of_1 = "one_of_1"
+    one_of_2 = "one_of_2"
+    one_of_3 = "one_of_3"
+    preferred = "preferred"
+    non_preferred = "non_preferred"
+    ambiguous = "ambiguous"
+
+
+class Verdict(str, Enum):
+    compliant = "compliant"
+    non_compliant = "non_compliant"
+    indeterminate = "indeterminate"
+
+
+class CheckResult(str, Enum):
+    pass_ = "pass"
+    fail = "fail"
+    indeterminate = "indeterminate"
+    not_evaluated = "not_evaluated"
+
+
+class CheckName(str, Enum):
+    coverage = "coverage"
+    position = "position"
+    prior_auth = "prior_auth"
+    step_therapy = "step_therapy"
+    quantity_limit = "quantity_limit"
+    rate = "rate"
+
+
+class CoverageObserved(str, Enum):
+    covered = "covered"
+    excluded = "excluded"
+    not_found = "not_found"
+
+
+class ConsensusStatus(str, Enum):
+    agreed = "agreed"
+    disagreed = "disagreed"
+    rules_only = "rules_only"
+    cached = "cached"
 
 
 class UMAllowance(str, Enum):

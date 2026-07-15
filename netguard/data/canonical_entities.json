@@ -1,0 +1,178 @@
+{
+  "version": "2026-07-15",
+  "entities": [
+    {
+      "canonical_id": "esi",
+      "pbm_name": "Express Scripts",
+      "gpo_name": "Ascent",
+      "aliases": [
+        "Ascent",
+        "ESI",
+        "Express Scripts",
+        "Express Scripts, Inc.",
+        "Express-Scripts",
+        "Evernorth",
+        "Evernorth Health Services",
+        "Express Scripts Medicare"
+      ]
+    },
+    {
+      "canonical_id": "cvs_zinc",
+      "pbm_name": "CVS Caremark",
+      "gpo_name": "Zinc",
+      "aliases": [
+        "Zinc",
+        "CVS",
+        "CVS Caremark",
+        "Caremark",
+        "CarelonRx",
+        "Carelon",
+        "SilverScript",
+        "SilverScript Insurance Company",
+        "Aetna",
+        "Aetna Pharmacy Management"
+      ]
+    },
+    {
+      "canonical_id": "optum_emisar",
+      "pbm_name": "Optum Rx",
+      "gpo_name": "Emisar",
+      "aliases": [
+        "Emisar",
+        "Optum",
+        "Optum Rx",
+        "OptumRx",
+        "UnitedHealthcare",
+        "UHC",
+        "United Healthcare"
+      ]
+    },
+    {
+      "canonical_id": "medimpact",
+      "pbm_name": "MedImpact",
+      "gpo_name": null,
+      "aliases": ["MedImpact", "MedImpact Healthcare Systems", "Med Impact"]
+    },
+    {
+      "canonical_id": "prime",
+      "pbm_name": "Prime Therapeutics",
+      "gpo_name": null,
+      "aliases": ["Prime Therapeutics", "Prime"]
+    },
+    {
+      "canonical_id": "humana",
+      "pbm_name": "Humana",
+      "gpo_name": null,
+      "aliases": ["Humana", "Humana Pharmacy Solutions", "Humana Pharmacy"]
+    },
+    {
+      "canonical_id": "navitus",
+      "pbm_name": "Navitus",
+      "gpo_name": null,
+      "aliases": ["Navitus", "Navitus Health Solutions", "Navitus MedicareRx"]
+    },
+    {
+      "canonical_id": "cigna",
+      "pbm_name": "Cigna",
+      "gpo_name": null,
+      "aliases": ["Cigna", "Cigna Healthcare", "Cigna Health"]
+    },
+    {
+      "canonical_id": "wellcare",
+      "pbm_name": "Wellcare",
+      "gpo_name": null,
+      "aliases": ["Wellcare", "WellCare", "Wellcare Medicare"]
+    },
+    {
+      "canonical_id": "kaiser",
+      "pbm_name": "Kaiser Permanente",
+      "gpo_name": null,
+      "aliases": ["Kaiser Permanente", "Kaiser", "KP"]
+    },
+    {
+      "canonical_id": "anthem",
+      "pbm_name": "Anthem",
+      "gpo_name": null,
+      "aliases": ["Anthem", "Anthem Blue Cross", "Anthem BCBS"]
+    },
+    {
+      "canonical_id": "bcbs_mi",
+      "pbm_name": "Blue Cross Blue Shield of Michigan",
+      "gpo_name": null,
+      "aliases": [
+        "Blue Cross Blue Shield of Michigan",
+        "BCBS Michigan",
+        "BCBSM"
+      ]
+    },
+    {
+      "canonical_id": "florida_blue",
+      "pbm_name": "Florida Blue",
+      "gpo_name": null,
+      "aliases": ["Florida Blue", "BCBS Florida", "Blue Cross Blue Shield of Florida"]
+    },
+    {
+      "canonical_id": "bcbs_il",
+      "pbm_name": "Blue Cross Blue Shield of Illinois",
+      "gpo_name": null,
+      "aliases": [
+        "Blue Cross Blue Shield of Illinois",
+        "BCBS Illinois",
+        "HCSC",
+        "Health Care Service Corporation"
+      ]
+    },
+    {
+      "canonical_id": "kroger",
+      "pbm_name": "Kroger Prescription Plans",
+      "gpo_name": null,
+      "aliases": ["Kroger Prescription Plans", "Kroger", "KPP"]
+    },
+    {
+      "canonical_id": "envolve",
+      "pbm_name": "Envolve Pharmacy Solutions",
+      "gpo_name": null,
+      "aliases": ["Envolve Pharmacy Solutions", "Envolve"]
+    },
+    {
+      "canonical_id": "regional_blues",
+      "pbm_name": "Regional Blues and Plans",
+      "gpo_name": null,
+      "aliases": [
+        "Regional Blues and Plans",
+        "Regional Health Plans",
+        "Horizon Blue Cross Blue Shield of New Jersey",
+        "Capital Blue Cross",
+        "Highmark",
+        "Wellmark",
+        "Harvard Pilgrim Health Care",
+        "HealthPartners",
+        "Priority Health",
+        "Presbyterian",
+        "Blue Shield of California",
+        "Regence BlueShield",
+        "Premera Blue Cross",
+        "BlueCross BlueShield of Tennessee",
+        "Blue Cross and Blue Shield of North Carolina",
+        "Independence Blue Cross",
+        "EmblemHealth",
+        "CareFirst BlueChoice",
+        "Geisinger Health Plan",
+        "Medica",
+        "Providence Health Plan",
+        "CDPHP",
+        "Health Net",
+        "Molina Healthcare of Texas, Inc",
+        "Molina",
+        "Superior HealthPlan",
+        "Maxor",
+        "MaxorPlus",
+        "Capital Rx",
+        "SmithRx",
+        "ProCare Rx",
+        "EmpiRx",
+        "Alternative PBM"
+      ]
+    }
+  ]
+}

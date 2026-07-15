@@ -1,0 +1,44 @@
+{
+  "contract_id": "FIXTURE-UNKNOWN-CP",
+  "contract_name": "AbbVie SYNTHROID \u2014 Fixture Ascent Clean",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Totally Unknown GPO XYZ",
+    "entity_type": "gpo"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "FIXTURE-ESI-CLEAN",
+    "FIXTURE-ESI-ST",
+    "FIXTURE-ESI-OLD",
+    "FIXTURE-ESI-ABSENT",
+    "26023"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 32.5,
+          "notes": "Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T00:00:00Z"
+  }
+}

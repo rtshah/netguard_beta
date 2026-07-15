@@ -103,6 +103,44 @@ Code: `submittal_schema.py`, `roster_schema.py`, `roster_ingest.py`,
 `submittal_extract.py`, `plan_resolve.py`, `rate_preview.py`, `invoice_generate.py`,
 `invoice_cli.py`.
 
+## Module 04: Formulary ↔ contract qualification
+
+Stateless compliance engine: given Module 03’s resolved plan→formulary join,
+compare the Module 01 formulary placement to the Module 02 contract terms and
+emit a verdict (`compliant` / `non_compliant` / `indeterminate`) with full audit.
+
+Engine is **deterministic-first** (scope gate, product join, UM/coverage/rate
+checks, tier→position rules). Optional `--llm-fallback` runs dual-call consensus
+only when position is ambiguous. Canonical GPO↔PBM entity table lives in
+`netguard/data/canonical_entities.json`.
+
+```bash
+# Batch-evaluate all resolved invoice lines (after Module 03 run)
+python -m netguard.compliance_cli run
+
+# One triple (designed ST fail fixture)
+python -m netguard.compliance_cli evaluate \
+  --contract tests/fixtures/compliance/contract_st_fail.json \
+  --formulary tests/fixtures/compliance/formulary_st.json \
+  --formulary-id FIXTURE-ESI-ST \
+  --claimed-rate 32.5
+
+# Optional LLM fallback when tier→position is ambiguous
+python -m netguard.compliance_cli run --llm-fallback
+
+# Unit tests (acceptance cases from agent_4 §6)
+python -m pytest tests/test_compliance_engine.py -v
+```
+
+Outputs: `output/compliance/results.json`, `summary.json`, per-line
+`details/*.json`. Designed ST discrepancy contract:
+`sample_contracts/ascent/st-not-allowed-demo.json` (evaluate against
+`output/086_ExpressScriptsMedicare_PDP.json`).
+
+Code: `entities.py`, `compliance_schema.py`, `compliance_engine.py`,
+`placement_rules.py`, `placement_llm.py`, `verdict_cache.py`,
+`formulary_index.py`, `compliance_run.py`, `compliance_cli.py`.
+
 ## Configuration (env vars)
 
 | Var | Default | Meaning |

@@ -1,0 +1,51 @@
+{
+  "document": {
+    "source_file": "fixture_esi_clean.pdf",
+    "source_file_hash": "abc",
+    "payer_or_pbm": "Express Scripts",
+    "formulary_name": "National Preferred Formulary Fixture",
+    "formulary_id": "FIXTURE-ESI-CLEAN",
+    "document_type": "commercial",
+    "template_label": null,
+    "effective_start": "2026-01-01",
+    "effective_end": "2026-12-31",
+    "plan_year": 2026,
+    "updated_on": null,
+    "legend": {
+      "ST": "Step Therapy",
+      "PA": "Prior Auth",
+      "QL": "Quantity Limit"
+    },
+    "extraction_confidence": 1.0,
+    "needs_human_review": false,
+    "review_reasons": []
+  },
+  "lines": [
+    {
+      "line_id": "SYNTHROID-p1",
+      "drug_name_raw": "SYNTHROID",
+      "drug_name_normalized": "synthroid",
+      "brand_or_generic": "brand",
+      "strength": null,
+      "dosage_form": null,
+      "therapeutic_class": "THYROID HORMONES",
+      "therapeutic_subclass": null,
+      "coverage_status": "covered",
+      "tier": 3,
+      "um_flags": [
+        "MO"
+      ],
+      "um_detail": null,
+      "footnotes": [],
+      "page_ref": 1,
+      "raw_row_text": "SYNTHROID 3 MO",
+      "screenshot_path": null,
+      "query_drug": "SYNTHROID",
+      "needs_human_review": false,
+      "review_reasons": [],
+      "extraction_confidence": 0.95
+    }
+  ],
+  "exclusions": [],
+  "warnings": []
+}

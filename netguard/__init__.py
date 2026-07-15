@@ -1,3 +1,3 @@
-"""NetGuard: formulary extraction, contract ingest, invoice/roster resolution."""
+"""NetGuard: formulary extraction, contract ingest, invoice resolution, compliance."""
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
