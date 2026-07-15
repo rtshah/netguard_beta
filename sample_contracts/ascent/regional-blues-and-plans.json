@@ -1,0 +1,47 @@
+{
+  "contract_id": "ABBV-SYNTHROID-REGIONAL-PLANS",
+  "contract_name": "AbbVie SYNTHROID \u2014 Regional Health Plan Formularies",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Regional Health Plans",
+    "entity_type": "health_plan"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "00026443",
+    "052147",
+    "24427FMLMPTXEN",
+    "5517-L NJ",
+    "A52325GRP-STD_1125",
+    "AMB25-TX-C-00023",
+    "XCHG",
+    "Y0057_SCAN_22199_2026"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 23.0,
+          "notes": "Regional Blues, exchange, and independent health-plan formularies in the demo set. IDs listed for joinable formularies. Additional demo files without printed IDs: 054_HealthNet_CA4Tier, 061_Regence_WA_Essential, 063_BCBSTennessee_Preferred, 064_BlueCrossNC_Essential5Tier, 065_CapitalBlueCross_ExclusiveFull, 066_IndependenceBC_SelectDrug, 068_CareFirst_FEHB, 069_Excellus_IndividualDrugList, 073_Geisinger_CommercialTraditional, 074_HarvardPilgrim_Premium3T, 075_Medica_CommercialDrugList, 076_HealthPartners_Formulary, 077_Providence_FormularyF, 078_PriorityHealth_ApprovedDrugList, 079_UPMC_Formulary, 080_CommunityHealthOptions_Formulary, 081_Presbyterian_GroupFormularies. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

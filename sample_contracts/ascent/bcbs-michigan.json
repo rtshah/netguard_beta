@@ -1,0 +1,40 @@
+{
+  "contract_id": "ABBV-SYNTHROID-BCBS-MI",
+  "contract_name": "AbbVie SYNTHROID \u2014 Blue Cross Blue Shield of Michigan",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Blue Cross Blue Shield of Michigan",
+    "entity_type": "health_plan"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "26449"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 25.0,
+          "notes": "BCBS Michigan Clinical Drug List and Medicare Plus Blue PPO. IDs listed for joinable formularies. Additional demo files without printed IDs: 055_BCBSMichigan_ClinicalDrugList. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "contract_id": "ABBV-SYNTHROID-UHC",
+  "contract_name": "AbbVie SYNTHROID \u2014 UnitedHealthcare PDL",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "UnitedHealthcare",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "00026000",
+    "00026005",
+    "WF11818409-D"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 28.0,
+          "notes": "UHC commercial Access 4-Tier and Medicare PDP/MAPD lists. IDs listed for joinable formularies. Additional demo files without printed IDs: 048_UHC_CommercialPDL. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

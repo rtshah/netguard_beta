@@ -1,0 +1,40 @@
+{
+  "contract_id": "ABBV-SYNTHROID-CAREMARK-BASIC-CONTROL",
+  "contract_name": "AbbVie SYNTHROID \u2014 CVS Caremark Basic Control Formulary",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "CVS Caremark",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "*"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 24.0,
+          "notes": "CVS Caremark Performance Drug List \u2014 Basic Control. Wildcard join; demo files: 014_OEFI_CVSCaremark. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

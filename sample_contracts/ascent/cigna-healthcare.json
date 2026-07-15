@@ -1,0 +1,42 @@
+{
+  "contract_id": "ABBV-SYNTHROID-CIGNA",
+  "contract_name": "AbbVie SYNTHROID \u2014 Cigna Healthcare PDL",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Cigna Healthcare",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "595200",
+    "595200 x Standard 3-Tier",
+    "968449"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 26.0,
+          "notes": "Cigna Standard 3-Tier and National Preferred 4-Tier specialty lists. Demo formularies: 021_CGI_Cigna, 022_JPS_Cigna, 050_Cigna_Standard3Tier. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "contract_id": "ABBV-SYNTHROID-HUMANA-PHARMACY",
+  "contract_name": "AbbVie SYNTHROID \u2014 Humana Pharmacy Solutions (Ascent GPO)",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Humana Pharmacy Solutions",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 6,
+  "payment_terms_days": 30,
+  "covered_formularies": [
+    "26399",
+    "26402",
+    "26800"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 30.0,
+          "notes": "Humana employer and PDP formularies. Demo formularies: 032_NDPERS_Humana, 033_MichiganState_Humana, 034_PensionBoardsUCC_Humana, 087_HumanaBasicRx_PDP, 088_HumanaPremierRx_PDP. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

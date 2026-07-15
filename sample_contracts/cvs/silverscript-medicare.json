@@ -1,0 +1,43 @@
+{
+  "contract_id": "ABBV-SYNTHROID-SILVERSCRIPT-MEDICARE",
+  "contract_name": "AbbVie SYNTHROID \u2014 SilverScript Medicare PDP",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "SilverScript",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 6,
+  "payment_terms_days": 30,
+  "covered_formularies": [
+    "26014",
+    "26021",
+    "26022",
+    "602 4T Platinum"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 29.5,
+          "notes": "SilverScript employer and Medicare PDP formularies (CVS Caremark Medicare). IDs listed for joinable formularies. Additional demo files without printed IDs: 025_STRSOhio_SilverScript. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

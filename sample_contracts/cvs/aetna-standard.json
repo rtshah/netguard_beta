@@ -1,0 +1,40 @@
+{
+  "contract_id": "ABBV-SYNTHROID-AETNA",
+  "contract_name": "AbbVie SYNTHROID \u2014 Aetna Standard Plan",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Aetna",
+    "entity_type": "health_plan"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "*"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 25.5,
+          "notes": "Aetna Standard Plan formulary. Wildcard join; demo files: 049_Aetna_StandardPlan. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

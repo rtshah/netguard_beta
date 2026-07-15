@@ -1,0 +1,40 @@
+{
+  "contract_id": "ABBV-SYNTHROID-FLORIDA-BLUE",
+  "contract_name": "AbbVie SYNTHROID \u2014 Florida Blue Formularies",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Florida Blue",
+    "entity_type": "health_plan"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "00026250 version 16"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 26.5,
+          "notes": "Florida Blue Open Medication Guide and BlueMedicare Comprehensive. IDs listed for joinable formularies. Additional demo files without printed IDs: 056_FloridaBlue_OpenMedGuide. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

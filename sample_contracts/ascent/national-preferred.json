@@ -1,0 +1,41 @@
+{
+  "contract_id": "ABBV-SYNTHROID-ASCENT-NPF",
+  "contract_name": "AbbVie SYNTHROID \u2014 Ascent National Preferred Formulary",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Express Scripts",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "CRP1513 602 1710-2 NP-A",
+    "EXCL-NPF-25"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 32.5,
+          "notes": "Ascent National Preferred Formulary (NPF). Commercial / employer formularies on the national template. IDs listed for joinable formularies. Additional demo files without printed IDs: 001_TexasAM_ExpressScripts, 002_OhioState_ExpressScripts, 037_ExpressScripts_NationalPreferred, 070_Wellmark_DrugList. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

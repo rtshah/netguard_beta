@@ -1,0 +1,40 @@
+{
+  "contract_id": "ABBV-SYNTHROID-ASCENT-NPF-FLEX",
+  "contract_name": "AbbVie SYNTHROID \u2014 Ascent National Preferred Flex Formulary",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Express Scripts",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "*"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 30.0,
+          "notes": "Ascent National Preferred Flex (NPF Flex). No demo formularies in the current 99-PDF set; reserved for flex-template clients. Placeholder \u2014 no demo formularies mapped yet. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

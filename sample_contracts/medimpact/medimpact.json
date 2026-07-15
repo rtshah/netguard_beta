@@ -1,0 +1,40 @@
+{
+  "contract_id": "ABBV-SYNTHROID-MEDIMPACT",
+  "contract_name": "AbbVie SYNTHROID \u2014 MedImpact Healthcare Systems",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "MedImpact",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 6,
+  "payment_terms_days": 30,
+  "covered_formularies": [
+    "*"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 21.0,
+          "notes": "MedImpact Standard, MedPerform Premier, and Select EX templates. Wildcard join; demo files: 017_MissouriState_MedImpact, 018_IbervilleParish_MedImpact, 019_Mesa_MedImpact, 020_Maryland_MedImpact, 040_MedImpact_MedPerformPremier, 082_SIHO_MedPerformPremier, 083_GlobalHealth_MedImpactSelectEX, 084_NMMIP_MedImpactACCESS, 085_CommunityCareHealth_MedImpact. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

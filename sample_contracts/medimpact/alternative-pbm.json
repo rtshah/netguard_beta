@@ -1,0 +1,40 @@
+{
+  "contract_id": "ABBV-SYNTHROID-ALT-PBM",
+  "contract_name": "AbbVie SYNTHROID \u2014 Alternative PBM Formularies",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Alternative PBMs",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 6,
+  "payment_terms_days": 30,
+  "covered_formularies": [
+    "2065Q1"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 20.0,
+          "notes": "Capital Rx, Maxor, SmithRx, ProCare Rx, EmpiRx. IDs listed for joinable formularies. Additional demo files without printed IDs: 042_CapitalRx_Liberty, 043_MaxorPlus_Preferred, 045_SmithRx_Essential, 047_EmpiRx_Open. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

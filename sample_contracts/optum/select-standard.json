@@ -1,0 +1,40 @@
+{
+  "contract_id": "ABBV-SYNTHROID-OPTUM-SELECT",
+  "contract_name": "AbbVie SYNTHROID \u2014 Optum Rx Select Standard Formulary",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Optum Rx",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "*"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 26.0,
+          "notes": "Optum Select Standard template. Wildcard join; demo files: 038_OptumRx_SelectStandard. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}

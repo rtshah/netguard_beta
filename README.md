@@ -49,6 +49,29 @@ python eval/compare_run.py
 
 Labels: `eval/ground_truth/synthroid.json`. Report: `eval/reports/latest.json`.
 
+## Module 02: Contract ingestion
+
+Master-template SYNTHROID contracts live in [`sample_contracts/`](sample_contracts/), grouped by PBM:
+
+| Folder | Templates |
+| --- | --- |
+| `ascent/` | National Preferred, NPF Flex, Basic/Basic Plus, Part D, Prime, Humana, Envolve, Kroger, CarelonRx, Navitus, Blues/regional |
+| `cvs/` | Value, Basic Control, Standard Control, Preferred Drug List, SilverScript, Aetna |
+| `optum/` | Premium Standard, Select Standard, Comprehensive Medicare, UHC, Wellcare, Kaiser |
+| `medimpact/` | MedImpact, alternative PBMs |
+
+All contracts use **permissive compliant terms** (`non_preferred` + all UM allowed) so Module 04 can pass every formulary except known Module 01 edge cases (CVS dual-listing, `[NP]` semantics, tier bleed).
+
+```bash
+# Regenerate from output/ formulary metadata + template catalog
+python -m netguard.contract_cli generate sample_contracts/ --formulary-dir output
+
+# Validate all contracts
+python -m netguard.contract_cli ingest sample_contracts/ --formulary-dir output
+```
+
+Code: `vocabulary.py`, `contract_schema.py`, `contract_ingest.py`, `contract_catalog.py`, `contract_generate.py`, `contract_cli.py`.
+
 ## Configuration (env vars)
 
 | Var | Default | Meaning |

@@ -1,0 +1,40 @@
+{
+  "contract_id": "ABBV-SYNTHROID-PRIME-THERAPEUTICS",
+  "contract_name": "AbbVie SYNTHROID \u2014 Prime Therapeutics (Ascent GPO)",
+  "manufacturer": "AbbVie Inc.",
+  "counterparty": {
+    "name": "Prime Therapeutics",
+    "entity_type": "pbm"
+  },
+  "effective_start": "2026-01-01",
+  "effective_end": "2026-12-31",
+  "lookback_months": 12,
+  "payment_terms_days": 60,
+  "covered_formularies": [
+    "4157 AL"
+  ],
+  "products": [
+    {
+      "product_name": "SYNTHROID",
+      "ndc": null,
+      "therapeutic_class": "Thyroid Hormones",
+      "rebate_terms": [
+        {
+          "term_id": "open-access-nonpreferred",
+          "condition": {
+            "formulary_position": "non_preferred",
+            "prior_auth": "allowed",
+            "step_therapy": "allowed",
+            "quantity_limit": "allowed"
+          },
+          "rebate_rate_pct": 27.0,
+          "notes": "Prime Therapeutics formularies under the Ascent GPO umbrella. IDs listed for joinable formularies. Additional demo files without printed IDs: 011_UMichigan_Prime, 039_PrimeTherapeutics_PrimeChoiceAccord. Compliant demo terms (all UM allowed)."
+        }
+      ]
+    }
+  ],
+  "source": {
+    "origin": "generated_sample",
+    "ingested_at": "2026-07-15T01:13:45Z"
+  }
+}
