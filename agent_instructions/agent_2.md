@@ -82,6 +82,7 @@ Rebate rates in a realistic band (~15–50%).
 Lookback 6 or 12 months; payment terms 30 / 60 / 90 days.
 covered_formularies referencing the actual formulary ID used in the demo.
 
+
 6. Ingestion behavior
 Load JSON → validate against the schema → normalize into the internal model.
 Fail loud: reject on missing required fields, unknown enum values, a term whose rate is absent, or a covered_formularies reference with no matching formulary. Emit a clear per-error message, never a silent default.

@@ -1,0 +1,58 @@
+HDR|PAYER=Ascent|PERIOD_START=2026-01-01|PERIOD_END=2026-03-31|CYCLE=quarterly
+NDC|PRODUCT|DOSAGE|PLAN_ID|PLAN_NAME|PLAN_ADDRESS|FORMULARY_ID|UTIL_UNITS|REBATE_AMT|REBATE_RATE_PCT
+00074-3727-90|SYNTHROID|50 mcg|ESI-0001X|2026 Express Scripts Natl Pref Form.|200 Market Ave, Washington, DC 20001||800|2600.00|32.5
+00074-3727-90|SYNTHROID|75 mcg|ESI-0002|National Preferred Formulary For The Ohio State University|500 Commerce Boulevard, Saint Louis, MO 63101|DEMO-002_OhioState_ExpressScripts|973|3162.25|32.5
+00074-3727-90|SYNTHROID|100 mcg|ESI-0003|National Preferred Formulary For Teacher Retirement System of Texas|12 Oak Rd, Chicago, IL 60601|EXCL-NPF-25|1146|3724.50|32.5
+00074-3727-90|SYNTHROID|112 mcg|ESI-0004|2026 Express Scripts National Preferred Formulary List|88 Pine Drive, Boston, MA 02108|CRP1513 602 1710-2 NP-A|1319|4286.75|32.5
+00074-3727-90|SYNTHROID|125 mcg|ESI-0005|State of Wisconsin Group Health Insurance Program Formulary|440 Harbor Way, Seattle, WA 98101|DEMO-010_Wisconsin_Navitus|1492|3580.80|24.0
+00074-3727-90|SYNTHROID|50 mcg|ESI-0006X|UMichigan Prime|15 Peachtree St, Atlanta, GA 30303||1665|4495.50|27.0
+00074-3727-90|SYNTHROID|75 mcg|ESI-0007|Standard 3-Tier Prescription Drug List|900 Mission Street, San Francisco, CA 94103|595200 x Standard 3-Tier|1838|4778.80|26.0
+00074-3727-90|SYNTHROID|100 mcg|ESI_0008|National Preferred 4-Tier Specialty Prescription Drug List|300 Broad Street, Philadelphia, PA 19102||2011|5228.60|26.0
+00074-3727-90|SYNTHROID|112 mcg|ESI-0009|Humana Medicare Employer Plan Formulary|77 Lakeshore Dr, Detroit, MI 48226|26800|2184|6552.00|30.0
+00074-3727-90|SYNTHROID|125 mcg|ESI-0010|Humana Medicare Employer Plan Abbreviated Formulary|100 Main Street, Austin, TX 78701|26800|2357|7071.00|30.0
+00074-3727-90|SYNTHROID|50 mcg|ESI-0011X|Humana Medicare Employer Plan Form.|200 Market Ave, Washington, DC 20001||2530|7590.00|30.0
+00074-3727-90|SYNTHROID|75 mcg|ESI-DUAL-02|2026 Express Scripts National Preferred Formulary|500 Commerce Blvd, St Louis, MO 63101|DEMO-037_ExpressScripts_NationalPreferred;24427FMLMPTXEN|2703|8784.75|32.5
+00074-3727-90|SYNTHROID|100 mcg|ESI-0013|PrimeChoice Accord Formulary|12 Oak Road, Chicago, IL 60601|DEMO-039_PrimeTherapeutics_PrimeChoiceAccord|2876|7765.20|27.0
+00074-3727-90|SYNTHROID|112 mcg|ESI-0014|Navitus Formularies|88 Pine Drive, Boston, MA 02108|DEMO-041_Navitus_Formularies|3049|7317.60|24.0
+00074-3727-90|SYNTHROID|125 mcg|ESI_0015|Standard 3-Tier Prescription Drug List|440 Harbor Way, Seattle, WA 98101||3222|8377.20|26.0
+00074-3727-90|SYNTHROID|50 mcg|ESI-0016X|2026 Northern California Commercial HMO Form.|15 Peachtree St, Atlanta, GA 30303||3395|8317.75|24.5
+00074-3727-90|SYNTHROID|75 mcg|ESI-0018|Formulary|300 Broad St, Philadelphia, PA 19102|AMB25-TX-C-00023|3568|8206.40|23.0
+00074-3727-90|SYNTHROID|100 mcg|ESI-0019|4 Tier Formulary|77 Lakeshore Drive, Detroit, MI 48226|DEMO-054_HealthNet_CA4Tier|3741|8604.30|23.0
+00074-3727-90|SYNTHROID|112 mcg|ESI-0020|Blue Cross Blue Shield of Michigan Clinical Drug List|100 Main Street, Austin, TX 78701|DEMO-055_BCBSMichigan_ClinicalDrugList|3914|9785.00|25.0
+00074-3727-90|SYNTHROID|125 mcg|ESI-0021|Open Medication Guide|200 Market Ave, Washington, DC 20001|DEMO-056_FloridaBlue_OpenMedGuide|4087|10830.55|26.5
+00074-3727-90|SYNTHROID|50 mcg|ESI-0022X|2026 Essential Drug List|500 Commerce Blvd, St Louis, MO 63101||4260|11715.00|27.5
+00074-3727-90|SYNTHROID|75 mcg|ESI_0023|Classic Formulary|12 Oak Road, Chicago, IL 60601||4433|10195.90|23.0
+00074-3727-90|SYNTHROID|100 mcg|ESI-0024|Blue Shield Standard Drug Formulary|88 Pine Dr, Boston, MA 02108|A52325GRP-STD_1125|4606|10593.80|23.0
+00074-3727-90|SYNTHROID|112 mcg|ESI-DUAL-01|National Preferred Formulary|440 Harbor Way, Seattle, WA 98101|DEMO-060_Highmark_Commercial;DEMO-070_Wellmark_DrugList|4779|10513.80|22.0
+00074-3727-90|SYNTHROID|125 mcg|ESI-0026|Essential Formulary|15 Peachtree Street, Atlanta, GA 30303|DEMO-061_Regence_WA_Essential|4952|11389.60|23.0
+00074-3727-90|SYNTHROID|50 mcg|ESI-0027X|Pref (B4) Form. Drug List|900 Mission St, San Francisco, CA 94103||5125|11787.50|23.0
+00074-3727-90|SYNTHROID|75 mcg|ESI-0028|Preferred Formulary Guide|300 Broad Street, Philadelphia, PA 19102|DEMO-063_BCBSTennessee_Preferred|5298|12185.40|23.0
+00074-3727-90|SYNTHROID|100 mcg|ESI-0029|Essential Q Formulary|77 Lakeshore Drive, Detroit, MI 48226|DEMO-064_BlueCrossNC_Essential5Tier|5471|12583.30|23.0
+00074-3727-90|SYNTHROID|112 mcg|ESI_0030|Exclusive Full Formulary|100 Main St, Austin, TX 78701||5644|12981.20|23.0
+00074-3727-90|SYNTHROID|125 mcg|ESI-0031|Select Drug Program Formulary|200 Market Avenue, Washington, DC 20001|DEMO-066_IndependenceBC_SelectDrug|5817|13379.10|23.0
+00074-3727-90|SYNTHROID|50 mcg|ESI-0032X|EmblemHlth Essential Plan, Individual and Family Plans, and Small G...|500 Commerce Blvd, St Louis, MO 63101||5990|13777.00|23.0
+00074-3727-90|SYNTHROID|75 mcg|ESI-0033|CareFirst Formulary 2|12 Oak Rd, Chicago, IL 60601|DEMO-068_CareFirst_FEHB|6163|14174.90|23.0
+00074-3727-90|SYNTHROID|100 mcg|ESI-0034|Excellus IndividualDrugList|88 Pine Drive, Boston, MA 02108|DEMO-069_Excellus_IndividualDrugList|6336|14572.80|23.0
+00074-3727-90|SYNTHROID|112 mcg|ESI-0036|Basic Annual, Multi-Tier Basic Annual, Enhanced Annual, Multi-Tier En...|15 Peachtree St, Atlanta, GA 30303|DEMO-071_BCBSIllinois_HCSC_MultiPlan|6509|15621.60|24.0
+00074-3727-90|SYNTHROID|125 mcg|ESI-0037|BCBSAlabama DrugGuide|900 Mission Street, San Francisco, CA 94103|4157 AL|6682|18041.40|27.0
+00074-3727-90|SYNTHROID|50 mcg|ESI-0038X|Geisinger Traditional Form.|300 Broad St, Philadelphia, PA 19102||6855|15766.50|23.0
+00074-3727-90|SYNTHROID|75 mcg|ESI-0039|Premium 3-Tier|77 Lakeshore Dr, Detroit, MI 48226|DEMO-074_HarvardPilgrim_Premium3T|7028|16164.40|23.0
+00074-3727-90|SYNTHROID|100 mcg|ESI-0040|Medica Commercial Drug List|100 Main Street, Austin, TX 78701|DEMO-075_Medica_CommercialDrugList|7201|16562.30|23.0
+00074-3727-90|SYNTHROID|112 mcg|ESI-0041|HealthPartners|200 Market Avenue, Washington, DC 20001|DEMO-076_HealthPartners_Formulary|7374|16960.20|23.0
+00074-3727-90|SYNTHROID|125 mcg|ESI-0042|2026 Prescription Drug 5-Tier Formulary|500 Commerce Blvd, St Louis, MO 63101|DEMO-077_Providence_FormularyF|7547|17358.10|23.0
+00074-3727-90|SYNTHROID|50 mcg|ESI-0043X|PriorityHlth ApprovedDrugList|12 Oak Rd, Chicago, IL 60601||7720|17756.00|23.0
+00074-3727-90|SYNTHROID|75 mcg|ESI-0044|UPMC|88 Pine Drive, Boston, MA 02108|DEMO-079_UPMC_Formulary|7893|18153.90|23.0
+00074-3727-90|SYNTHROID|100 mcg|ESI_0045|Community Health Options|440 Harbor Way, Seattle, WA 98101||8066|18551.80|23.0
+00074-3727-90|SYNTHROID|112 mcg|ESI-0046|Group Plan Formularies|15 Peachtree Street, Atlanta, GA 30303|DEMO-081_Presbyterian_GroupFormularies|8239|18949.70|23.0
+00074-3727-90|SYNTHROID|125 mcg|ESI-0047|Express Scripts Medicare (PDP) 2026 Formulary|900 Mission Street, San Francisco, CA 94103|26023|8412|23553.60|28.0
+00074-3727-90|SYNTHROID|50 mcg|ESI-0048X|Humana Form.|300 Broad St, Philadelphia, PA 19102||8585|25755.00|30.0
+00074-3727-90|SYNTHROID|75 mcg|ESI-0049|Humana Formulary|77 Lakeshore Drive, Detroit, MI 48226|26402|8758|26274.00|30.0
+00074-3727-90|SYNTHROID|100 mcg|ESI-0050|Wellcare Classic (PDP)|100 Main Street, Austin, TX 78701|26191|8931|24113.70|27.0
+00074-3727-90|SYNTHROID|112 mcg|ESI-0051|Wellcare Value Script (PDP)|200 Market Ave, Washington, DC 20001|26195|9104|24580.80|27.0
+00074-3727-90|SYNTHROID|125 mcg|ESI_0052|2026 Formulary|500 Commerce Boulevard, Saint Louis, MO 63101||9277|22264.80|24.0
+00074-3727-90|SYNTHROID|50 mcg|ESI-0053X|2026 Comprehensive Form.|12 Oak Rd, Chicago, IL 60601||9450|23152.50|24.5
+00074-3727-90|SYNTHROID|75 mcg|ESI-0054|2026 BlueMedicare Comprehensive Formulary|88 Pine Dr, Boston, MA 02108|00026250 version 16|9623|25500.95|26.5
+00074-3727-90|SYNTHROID|100 mcg|ESI-0055|2026 Core Comprehensive Formulary|440 Harbor Way, Seattle, WA 98101|26449|9796|24490.00|25.0
+00074-3727-90|SYNTHROID|112 mcg|ESI-0056|Anthem Medicare Preferred (PPO) with Senior Rx Plus|15 Peachtree Street, Atlanta, GA 30303|DEMO-098_Anthem_MedicarePreferredPPO|9969|27414.75|27.5
+00074-3727-90|SYNTHROID|125 mcg|ESI-0057|SCAN Formulary|900 Mission St, San Francisco, CA 94103|Y0057_SCAN_22199_2026|10142|23326.60|23.0
+00074-3727-90|SYNTHROID|50 mcg|ESI-0058X|2026 Form.|300 Broad St, Philadelphia, PA 19102||10315|23724.50|23.0

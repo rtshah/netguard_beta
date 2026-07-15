@@ -1,17 +1,18 @@
 {
-  "contract_id": "ABBV-SYNTHROID-AETNA",
-  "contract_name": "AbbVie SYNTHROID \u2014 Aetna Standard Plan",
+  "contract_id": "ABBV-SYNTHROID-CAREMARK-PREFERRED",
+  "contract_name": "AbbVie SYNTHROID \u2014 CVS Caremark Preferred / Performance Drug List",
   "manufacturer": "AbbVie Inc.",
   "counterparty": {
-    "name": "Aetna",
-    "entity_type": "health_plan"
+    "name": "CVS Caremark",
+    "entity_type": "pbm"
   },
   "effective_start": "2026-01-01",
   "effective_end": "2026-12-31",
   "lookback_months": 12,
   "payment_terms_days": 60,
   "covered_formularies": [
-    "*"
+    "106-20520-1-0112",
+    "DEMO-016_Delaware_CVSCaremark"
   ],
   "products": [
     {
@@ -27,8 +28,8 @@
             "step_therapy": "allowed",
             "quantity_limit": "allowed"
           },
-          "rebate_rate_pct": 25.5,
-          "notes": "Aetna Standard Plan formulary. Wildcard join; demo files: 049_Aetna_StandardPlan. Compliant demo terms (all UM allowed)."
+          "rebate_rate_pct": 29.0,
+          "notes": "CVS Caremark Preferred Drug List and client custom performance lists. IDs listed for joinable formularies. Additional demo files without printed IDs: 016_Delaware_CVSCaremark. Compliant demo terms (all UM allowed)."
         }
       ]
     }

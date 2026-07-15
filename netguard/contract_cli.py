@@ -3,7 +3,7 @@
 Usage:
   python -m netguard.contract_cli generate sample_contracts/ --formulary-dir output
   python -m netguard.contract_cli ingest sample_contracts/ --formulary-dir output
-  python -m netguard.contract_cli validate sample_contracts/optum/optum-comprehensive-medicare.json
+  python -m netguard.contract_cli validate sample_contracts/optum_emisar/comprehensive-medicare.json
 """
 
 from __future__ import annotations

@@ -51,14 +51,14 @@ Labels: `eval/ground_truth/synthroid.json`. Report: `eval/reports/latest.json`.
 
 ## Module 02: Contract ingestion
 
-Master-template SYNTHROID contracts live in [`sample_contracts/`](sample_contracts/), grouped by PBM:
+Master-template SYNTHROID contracts live in [`sample_contracts/`](sample_contracts/), grouped by PBM / PBM-led GPO:
 
-| Folder | Templates |
-| --- | --- |
-| `ascent/` | National Preferred, NPF Flex, Basic/Basic Plus, Part D, Prime, Humana, Envolve, Kroger, CarelonRx, Navitus, Blues/regional |
-| `cvs/` | Value, Basic Control, Standard Control, Preferred Drug List, SilverScript, Aetna |
-| `optum/` | Premium Standard, Select Standard, Comprehensive Medicare, UHC, Wellcare, Kaiser |
-| `medimpact/` | MedImpact, alternative PBMs |
+| Folder | GPO / role | Templates |
+| --- | --- | --- |
+| `ascent/` | Ascent (ESI) | NPF, Part D, Prime, Humana, Navitus, Kroger, Blues, Cigna, Wellcare, Kaiser, … |
+| `cvs_zinc/` | Zinc (CVS) | Caremark lists, SilverScript, Aetna, CarelonRx |
+| `optum_emisar/` | Emisar (Optum) | Optum lists + UHC only |
+| `medimpact/` | Independent (no GPO) | MedImpact, alternative PBMs |
 
 All contracts use **permissive compliant terms** (`non_preferred` + all UM allowed) so Module 04 can pass every formulary except known Module 01 edge cases (CVS dual-listing, `[NP]` semantics, tier bleed).
 
@@ -71,6 +71,37 @@ python -m netguard.contract_cli ingest sample_contracts/ --formulary-dir output
 ```
 
 Code: `vocabulary.py`, `contract_schema.py`, `contract_ingest.py`, `contract_catalog.py`, `contract_generate.py`, `contract_cli.py`.
+
+## Module 03: Invoice / roster / plan→formulary
+
+Ingest payer rebate submittals + monthly Excel rosters, then fuzzy-resolve each
+submitting plan to its governing formulary (and recover missing formulary IDs).
+
+```bash
+# Generate per-PBM rosters + NCPDP submittals for every formulary in output/
+python -m netguard.invoice_cli generate sample_invoices/
+
+# Full pipeline (deterministic — recommended for the scaled demo)
+python -m netguard.invoice_cli run sample_invoices/ --deterministic
+
+# Plan → formulary → PBM/GPO contract mapping table
+python -m netguard.invoice_cli report
+python -m netguard.invoice_cli report --flags-only    # leakage / recovered formulary only
+python -m netguard.invoice_cli report --limit 0       # print all rows
+```
+
+Covers all formularies in `output/`, bucketed like `sample_contracts/`:
+**ascent**, **cvs_zinc**, **optum_emisar**, **medimpact**. Ascent holds most
+misc PBMs; Zinc includes CarelonRx; Emisar is Optum/UHC only; MedImpact has no
+PBM-led GPO (~220-plan roster). Submittals include missing formulary IDs,
+dual-formulary leakage, fuzzy plan ids, and claimed-rate mismatches.
+
+Outputs: `output/invoices/` (per-roster JSON, resolved submittals, `summary.json`,
+`rate_preview.json`).
+
+Code: `submittal_schema.py`, `roster_schema.py`, `roster_ingest.py`,
+`submittal_extract.py`, `plan_resolve.py`, `rate_preview.py`, `invoice_generate.py`,
+`invoice_cli.py`.
 
 ## Configuration (env vars)
 

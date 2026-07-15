@@ -60,3 +60,41 @@ class VisionLLM:
                 if attempt < max_retries - 1:
                     time.sleep(1.5 * (attempt + 1))
         raise RuntimeError(f"LLM call failed after {max_retries} attempts: {last_err}")
+
+
+class TextLLM:
+    """Text-only structured-output wrapper (Module 03 submittal extraction)."""
+
+    def __init__(self, api_key: str, model: str):
+        self._client = OpenAI(api_key=api_key)
+        self._model = model
+
+    def parse(
+        self,
+        system: str,
+        user_text: str,
+        schema: Type[T],
+        max_retries: int = 3,
+    ) -> T:
+        messages = [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user_text},
+        ]
+        last_err: Exception | None = None
+        for attempt in range(max_retries):
+            try:
+                completion = self._client.chat.completions.parse(
+                    model=self._model,
+                    messages=messages,
+                    response_format=schema,
+                    temperature=0,
+                )
+                parsed = completion.choices[0].message.parsed
+                if parsed is None:
+                    raise RuntimeError("Model returned no parsed content.")
+                return parsed
+            except Exception as e:  # noqa: BLE001
+                last_err = e
+                if attempt < max_retries - 1:
+                    time.sleep(1.5 * (attempt + 1))
+        raise RuntimeError(f"LLM call failed after {max_retries} attempts: {last_err}")

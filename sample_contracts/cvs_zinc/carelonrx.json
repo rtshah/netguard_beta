@@ -1,20 +1,17 @@
 {
-  "contract_id": "ABBV-SYNTHROID-SILVERSCRIPT-MEDICARE",
-  "contract_name": "AbbVie SYNTHROID \u2014 SilverScript Medicare PDP",
+  "contract_id": "ABBV-SYNTHROID-CARELONRX",
+  "contract_name": "AbbVie SYNTHROID \u2014 CarelonRx (CVS Zinc GPO)",
   "manufacturer": "AbbVie Inc.",
   "counterparty": {
-    "name": "SilverScript",
+    "name": "CarelonRx",
     "entity_type": "pbm"
   },
   "effective_start": "2026-01-01",
   "effective_end": "2026-12-31",
-  "lookback_months": 6,
-  "payment_terms_days": 30,
+  "lookback_months": 12,
+  "payment_terms_days": 60,
   "covered_formularies": [
-    "26014",
-    "26021",
-    "26022",
-    "602 4T Platinum"
+    "*"
   ],
   "products": [
     {
@@ -30,8 +27,8 @@
             "step_therapy": "allowed",
             "quantity_limit": "allowed"
           },
-          "rebate_rate_pct": 29.5,
-          "notes": "SilverScript employer and Medicare PDP formularies (CVS Caremark Medicare). IDs listed for joinable formularies. Additional demo files without printed IDs: 025_STRSOhio_SilverScript. Compliant demo terms (all UM allowed)."
+          "rebate_rate_pct": 26.5,
+          "notes": "CarelonRx \u2014 Zinc external member. No formularies in the current demo set. Placeholder \u2014 no demo formularies mapped yet. Compliant demo terms (all UM allowed)."
         }
       ]
     }

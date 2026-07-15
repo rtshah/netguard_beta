@@ -11,7 +11,15 @@
   "lookback_months": 6,
   "payment_terms_days": 30,
   "covered_formularies": [
-    "*"
+    "DEMO-017_MissouriState_MedImpact",
+    "DEMO-018_IbervilleParish_MedImpact",
+    "DEMO-019_Mesa_MedImpact",
+    "DEMO-020_Maryland_MedImpact",
+    "DEMO-040_MedImpact_MedPerformPremier",
+    "DEMO-082_SIHO_MedPerformPremier",
+    "DEMO-083_GlobalHealth_MedImpactSelectEX",
+    "DEMO-084_NMMIP_MedImpactACCESS",
+    "DEMO-085_CommunityCareHealth_MedImpact"
   ],
   "products": [
     {

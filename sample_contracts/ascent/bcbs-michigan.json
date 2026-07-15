@@ -11,7 +11,8 @@
   "lookback_months": 12,
   "payment_terms_days": 60,
   "covered_formularies": [
-    "26449"
+    "26449",
+    "DEMO-055_BCBSMichigan_ClinicalDrugList"
   ],
   "products": [
     {

@@ -1,0 +1,139 @@
+{
+  "roster_period": "2026-03",
+  "roster_target_size": {
+    "ascent": 1000,
+    "cvs_zinc": 1000,
+    "optum_emisar": 1000,
+    "medimpact": 220
+  },
+  "real_formulary_plans": 99,
+  "total_roster_rows": 3220,
+  "submitter_counts": {
+    "ascent": {
+      "roster_rows": 1000,
+      "real": 58,
+      "dummy": 942,
+      "submitting_plan_ids": 56
+    },
+    "cvs_zinc": {
+      "roster_rows": 1000,
+      "real": 16,
+      "dummy": 984,
+      "submitting_plan_ids": 15
+    },
+    "optum_emisar": {
+      "roster_rows": 1000,
+      "real": 11,
+      "dummy": 989,
+      "submitting_plan_ids": 10
+    },
+    "medimpact": {
+      "roster_rows": 220,
+      "real": 14,
+      "dummy": 206,
+      "submitting_plan_ids": 13
+    }
+  },
+  "sample_contracts_folders": [
+    "ascent",
+    "cvs_zinc",
+    "medimpact",
+    "optum_emisar"
+  ],
+  "dual_formulary_plan_ids": [
+    "CVS-DUAL-03",
+    "ESI-DUAL-01",
+    "ESI-DUAL-02",
+    "MED-DUAL-05",
+    "OPT-DUAL-04"
+  ],
+  "dual_pairs": [
+    {
+      "plan_id": "ESI-DUAL-01",
+      "formularies": [
+        {
+          "formulary_id": "DEMO-060_Highmark_Commercial",
+          "rate": 22.0,
+          "lives": 25000,
+          "stem": "060_Highmark_Commercial"
+        },
+        {
+          "formulary_id": "DEMO-070_Wellmark_DrugList",
+          "rate": 32.5,
+          "lives": 80000,
+          "stem": "070_Wellmark_DrugList"
+        }
+      ]
+    },
+    {
+      "plan_id": "ESI-DUAL-02",
+      "formularies": [
+        {
+          "formulary_id": "24427FMLMPTXEN",
+          "rate": 23.0,
+          "lives": 25000,
+          "stem": "052_Molina_TXMarketplace"
+        },
+        {
+          "formulary_id": "DEMO-037_ExpressScripts_NationalPreferred",
+          "rate": 32.5,
+          "lives": 80000,
+          "stem": "037_ExpressScripts_NationalPreferred"
+        }
+      ]
+    },
+    {
+      "plan_id": "CVS-DUAL-03",
+      "formularies": [
+        {
+          "formulary_id": "106-25954B 070126",
+          "rate": 18.0,
+          "lives": 25000,
+          "stem": "036_CVSCaremark_Value"
+        },
+        {
+          "formulary_id": "602 4T Platinum",
+          "rate": 29.5,
+          "lives": 80000,
+          "stem": "089_SilverScriptAetnaMedicareRx_PDP"
+        }
+      ]
+    },
+    {
+      "plan_id": "OPT-DUAL-04",
+      "formularies": [
+        {
+          "formulary_id": "DEMO-038_OptumRx_SelectStandard",
+          "rate": 26.0,
+          "lives": 25000,
+          "stem": "038_OptumRx_SelectStandard"
+        },
+        {
+          "formulary_id": "26047",
+          "rate": 32.5,
+          "lives": 80000,
+          "stem": "035_OrangeCounty_OptumRx"
+        }
+      ]
+    },
+    {
+      "plan_id": "MED-DUAL-05",
+      "formularies": [
+        {
+          "formulary_id": "DEMO-042_CapitalRx_Liberty",
+          "rate": 20.0,
+          "lives": 25000,
+          "stem": "042_CapitalRx_Liberty"
+        },
+        {
+          "formulary_id": "DEMO-085_CommunityCareHealth_MedImpact",
+          "rate": 21.0,
+          "lives": 80000,
+          "stem": "085_CommunityCareHealth_MedImpact"
+        }
+      ]
+    }
+  ],
+  "contracts_updated": 20,
+  "note": "PBM-led GPOs (EVERSANA): Ascent (ESI+Prime/Humana/Navitus/misc), CVS_Zinc (Caremark+CarelonRx), Optum_Emisar (Optum/UHC only), MedImpact (independent \u2014 no PBM-led GPO). Every real formulary_id is listed on its contract covered_formularies. Rosters padded with dummy non-submitters; NCPDP = utilization filter only (no other_bucket junk / no rate-mismatch lines in this pass)."
+}

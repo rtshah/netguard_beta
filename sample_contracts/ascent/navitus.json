@@ -11,7 +11,9 @@
   "lookback_months": 12,
   "payment_terms_days": 60,
   "covered_formularies": [
-    "00026151"
+    "00026151",
+    "DEMO-010_Wisconsin_Navitus",
+    "DEMO-041_Navitus_Formularies"
   ],
   "products": [
     {

@@ -3,8 +3,8 @@
   "contract_name": "AbbVie SYNTHROID \u2014 Ascent National Preferred Formulary",
   "manufacturer": "AbbVie Inc.",
   "counterparty": {
-    "name": "Express Scripts",
-    "entity_type": "pbm"
+    "name": "Ascent",
+    "entity_type": "gpo"
   },
   "effective_start": "2026-01-01",
   "effective_end": "2026-12-31",
@@ -12,6 +12,10 @@
   "payment_terms_days": 60,
   "covered_formularies": [
     "CRP1513 602 1710-2 NP-A",
+    "DEMO-001_TexasAM_ExpressScripts",
+    "DEMO-002_OhioState_ExpressScripts",
+    "DEMO-037_ExpressScripts_NationalPreferred",
+    "DEMO-070_Wellmark_DrugList",
     "EXCL-NPF-25"
   ],
   "products": [
@@ -29,7 +33,7 @@
             "quantity_limit": "allowed"
           },
           "rebate_rate_pct": 32.5,
-          "notes": "Ascent National Preferred Formulary (NPF). Commercial / employer formularies on the national template. IDs listed for joinable formularies. Additional demo files without printed IDs: 001_TexasAM_ExpressScripts, 002_OhioState_ExpressScripts, 037_ExpressScripts_NationalPreferred, 070_Wellmark_DrugList. Compliant demo terms (all UM allowed)."
+          "notes": "Ascent GPO contract for National Preferred Formulary (NPF); formulary PDFs name Express Scripts / Evernorth. IDs listed for joinable formularies. Additional demo files without printed IDs: 001_TexasAM_ExpressScripts, 002_OhioState_ExpressScripts, 037_ExpressScripts_NationalPreferred, 070_Wellmark_DrugList. Compliant demo terms (all UM allowed)."
         }
       ]
     }

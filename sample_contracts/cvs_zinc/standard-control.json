@@ -1,17 +1,18 @@
 {
-  "contract_id": "ABBV-SYNTHROID-KAISER",
-  "contract_name": "AbbVie SYNTHROID \u2014 Kaiser Permanente Formulary",
+  "contract_id": "ABBV-SYNTHROID-CAREMARK-STANDARD-CONTROL",
+  "contract_name": "AbbVie SYNTHROID \u2014 CVS Caremark Standard Control + Advanced Specialty",
   "manufacturer": "AbbVie Inc.",
   "counterparty": {
-    "name": "Kaiser Permanente",
-    "entity_type": "health_plan"
+    "name": "CVS Caremark",
+    "entity_type": "pbm"
   },
   "effective_start": "2026-01-01",
   "effective_end": "2026-12-31",
   "lookback_months": 12,
   "payment_terms_days": 60,
   "covered_formularies": [
-    "00026405"
+    "1500",
+    "DEMO-013_TeamCare_CVSCaremark"
   ],
   "products": [
     {
@@ -27,8 +28,8 @@
             "step_therapy": "allowed",
             "quantity_limit": "allowed"
           },
-          "rebate_rate_pct": 24.5,
-          "notes": "Kaiser commercial HMO and Medicare Part D formularies. IDs listed for joinable formularies. Additional demo files without printed IDs: 051_Kaiser_CACommercialHMO. Compliant demo terms (all UM allowed)."
+          "rebate_rate_pct": 27.5,
+          "notes": "CVS Caremark Standard Control with Advanced Control Specialty Formulary. IDs listed for joinable formularies. Additional demo files without printed IDs: 013_TeamCare_CVSCaremark. Compliant demo terms (all UM allowed)."
         }
       ]
     }

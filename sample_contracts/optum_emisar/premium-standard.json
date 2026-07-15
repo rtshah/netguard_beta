@@ -1,6 +1,6 @@
 {
-  "contract_id": "ABBV-SYNTHROID-OPTUM-SELECT",
-  "contract_name": "AbbVie SYNTHROID \u2014 Optum Rx Select Standard Formulary",
+  "contract_id": "ABBV-SYNTHROID-OPTUM-PREMIUM",
+  "contract_name": "AbbVie SYNTHROID \u2014 Optum Rx Premium / Premium Standard Formulary",
   "manufacturer": "AbbVie Inc.",
   "counterparty": {
     "name": "Optum Rx",
@@ -11,7 +11,11 @@
   "lookback_months": 12,
   "payment_terms_days": 60,
   "covered_formularies": [
-    "*"
+    "DEMO-005_Michigan_OptumRx",
+    "DEMO-006_Eaton_OptumRx",
+    "DEMO-007_Wespath_OptumRx",
+    "DEMO-008_MPSERS_OptumRx",
+    "DEMO-009_TrinityHealth_OptumRx"
   ],
   "products": [
     {
@@ -27,8 +31,8 @@
             "step_therapy": "allowed",
             "quantity_limit": "allowed"
           },
-          "rebate_rate_pct": 26.0,
-          "notes": "Optum Select Standard template. Wildcard join; demo files: 038_OptumRx_SelectStandard. Compliant demo terms (all UM allowed)."
+          "rebate_rate_pct": 31.0,
+          "notes": "Optum Premium and Premium Standard templates. Wildcard join; demo files: 005_Michigan_OptumRx, 006_Eaton_OptumRx, 007_Wespath_OptumRx, 008_MPSERS_OptumRx, 009_TrinityHealth_OptumRx. Compliant demo terms (all UM allowed)."
         }
       ]
     }

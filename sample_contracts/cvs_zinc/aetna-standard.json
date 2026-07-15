@@ -1,17 +1,17 @@
 {
-  "contract_id": "ABBV-SYNTHROID-CAREMARK-STANDARD-CONTROL",
-  "contract_name": "AbbVie SYNTHROID \u2014 CVS Caremark Standard Control + Advanced Specialty",
+  "contract_id": "ABBV-SYNTHROID-AETNA",
+  "contract_name": "AbbVie SYNTHROID \u2014 Aetna Standard Plan",
   "manufacturer": "AbbVie Inc.",
   "counterparty": {
-    "name": "CVS Caremark",
-    "entity_type": "pbm"
+    "name": "Aetna",
+    "entity_type": "health_plan"
   },
   "effective_start": "2026-01-01",
   "effective_end": "2026-12-31",
   "lookback_months": 12,
   "payment_terms_days": 60,
   "covered_formularies": [
-    "1500"
+    "DEMO-049_Aetna_StandardPlan"
   ],
   "products": [
     {
@@ -27,8 +27,8 @@
             "step_therapy": "allowed",
             "quantity_limit": "allowed"
           },
-          "rebate_rate_pct": 27.5,
-          "notes": "CVS Caremark Standard Control with Advanced Control Specialty Formulary. IDs listed for joinable formularies. Additional demo files without printed IDs: 013_TeamCare_CVSCaremark. Compliant demo terms (all UM allowed)."
+          "rebate_rate_pct": 25.5,
+          "notes": "Aetna Standard Plan formulary. Wildcard join; demo files: 049_Aetna_StandardPlan. Compliant demo terms (all UM allowed)."
         }
       ]
     }

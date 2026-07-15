@@ -1,3 +1,3 @@
-"""NetGuard Module 01: targeted formulary drug validation extraction."""
+"""NetGuard: formulary extraction, contract ingest, invoice/roster resolution."""
 
-__version__ = "0.1.0"
+__version__ = "0.3.0"

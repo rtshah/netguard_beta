@@ -11,7 +11,11 @@
   "lookback_months": 6,
   "payment_terms_days": 30,
   "covered_formularies": [
-    "2065Q1"
+    "2065Q1",
+    "DEMO-042_CapitalRx_Liberty",
+    "DEMO-043_MaxorPlus_Preferred",
+    "DEMO-045_SmithRx_Essential",
+    "DEMO-047_EmpiRx_Open"
   ],
   "products": [
     {

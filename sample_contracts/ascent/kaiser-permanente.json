@@ -1,19 +1,18 @@
 {
-  "contract_id": "ABBV-SYNTHROID-UHC",
-  "contract_name": "AbbVie SYNTHROID \u2014 UnitedHealthcare PDL",
+  "contract_id": "ABBV-SYNTHROID-KAISER",
+  "contract_name": "AbbVie SYNTHROID \u2014 Kaiser Permanente Formulary",
   "manufacturer": "AbbVie Inc.",
   "counterparty": {
-    "name": "UnitedHealthcare",
-    "entity_type": "pbm"
+    "name": "Kaiser Permanente",
+    "entity_type": "health_plan"
   },
   "effective_start": "2026-01-01",
   "effective_end": "2026-12-31",
   "lookback_months": 12,
   "payment_terms_days": 60,
   "covered_formularies": [
-    "00026000",
-    "00026005",
-    "WF11818409-D"
+    "00026405",
+    "DEMO-051_Kaiser_CACommercialHMO"
   ],
   "products": [
     {
@@ -29,8 +28,8 @@
             "step_therapy": "allowed",
             "quantity_limit": "allowed"
           },
-          "rebate_rate_pct": 28.0,
-          "notes": "UHC commercial Access 4-Tier and Medicare PDP/MAPD lists. IDs listed for joinable formularies. Additional demo files without printed IDs: 048_UHC_CommercialPDL. Compliant demo terms (all UM allowed)."
+          "rebate_rate_pct": 24.5,
+          "notes": "Kaiser commercial HMO and Medicare Part D formularies. IDs listed for joinable formularies. Additional demo files without printed IDs: 051_Kaiser_CACommercialHMO. Compliant demo terms (all UM allowed)."
         }
       ]
     }

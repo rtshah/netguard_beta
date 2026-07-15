@@ -1,4 +1,4 @@
-"""Shared vocabulary for Module 01 extraction codes and Module 02/04 contract terms."""
+"""Shared vocabulary for Modules 01–03 (extraction, contracts, invoices)."""
 
 from __future__ import annotations
 
@@ -22,6 +22,7 @@ class UMAllowance(str, Enum):
 class EntityType(str, Enum):
     pbm = "pbm"
     health_plan = "health_plan"
+    gpo = "gpo"
 
 
 class ContractOrigin(str, Enum):
@@ -29,8 +30,28 @@ class ContractOrigin(str, Enum):
     ingested_json = "ingested_json"
 
 
+class SourceFormat(str, Enum):
+    ncpdp = "ncpdp"
+    rms_summary = "rms_summary"
+    payer_custom = "payer_custom"
+
+
+class MatchStatus(str, Enum):
+    matched = "matched"
+    other_bucket = "other_bucket"
+    unmatched = "unmatched"
+
+
+class RebateCycle(str, Enum):
+    monthly = "monthly"
+    quarterly = "quarterly"
+
+
 EXTRACTION_UM_TO_CONTRACT_KEY: dict[str, str] = {
     "PA": "prior_auth",
     "ST": "step_therapy",
     "QL": "quantity_limit",
 }
+
+# Confidence threshold for plan→formulary joins (Module 03 Part C).
+MATCH_CONFIDENCE_THRESHOLD = 0.80

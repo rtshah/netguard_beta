@@ -1,0 +1,17 @@
+HDR|PAYER=CVS_Zinc|PERIOD_START=2026-01-01|PERIOD_END=2026-03-31|CYCLE=quarterly
+NDC|PRODUCT|DOSAGE|PLAN_ID|PLAN_NAME|PLAN_ADDRESS|FORMULARY_ID|UTIL_UNITS|REBATE_AMT|REBATE_RATE_PCT
+00074-3727-90|SYNTHROID|50 mcg|CVS-0001X|Pref Drug List|200 Market Ave, Washington, DC 20001||800|2320.00|29.0
+00074-3727-90|SYNTHROID|75 mcg|CVS-0002|Performance Drug List - Standard Control for Clients with Advanced Co...|500 Commerce Boulevard, Saint Louis, MO 63101|DEMO-013_TeamCare_CVSCaremark|973|2675.75|27.5
+00074-3727-90|SYNTHROID|100 mcg|CVS-0003|Performance Drug List – Basic Control|12 Oak Rd, Chicago, IL 60601|DEMO-014_OEFI_CVSCaremark|1146|2750.40|24.0
+00074-3727-90|SYNTHROID|112 mcg|CVS-0004|Standard Control Formulary + Advanced Control Specialty Formulary|88 Pine Drive, Boston, MA 02108|1500|1319|3627.25|27.5
+00074-3727-90|SYNTHROID|125 mcg|CVS-0005|Non-Medicare Prescription Plan - CVS Caremark|440 Harbor Way, Seattle, WA 98101|DEMO-016_Delaware_CVSCaremark|1492|4326.80|29.0
+00074-3727-90|SYNTHROID|50 mcg|CVS-0006X|5T Classic Form.|15 Peachtree St, Atlanta, GA 30303||1665|4911.75|29.5
+00074-3727-90|SYNTHROID|75 mcg|CVS-0007|STRSOhio SilverScript|900 Mission Street, San Francisco, CA 94103|DEMO-025_STRSOhio_SilverScript|1838|5422.10|29.5
+00074-3727-90|SYNTHROID|100 mcg|CVS_0008|Silver Script Employer PDP sponsored by The South Carolina Public Empl...|300 Broad Street, Philadelphia, PA 19102||2011|5932.45|29.5
+00074-3727-90|SYNTHROID|112 mcg|CVS-0009|SilverScript Employer PDP sponsored by State of Louisiana Office of G...|77 Lakeshore Dr, Detroit, MI 48226|26021|2184|6442.80|29.5
+00074-3727-90|SYNTHROID|125 mcg|CVS-0010|SilverScript Employer PDP sponsored by HealthChoice (SilverScript)|100 Main Street, Austin, TX 78701|26021|2357|6953.15|29.5
+00074-3727-90|SYNTHROID|50 mcg|CVS-0011X|SilverScript Employer PDP sponsored by Cleveland Clinic Retiree Plan ...|200 Market Ave, Washington, DC 20001||2530|7463.50|29.5
+00074-3727-90|SYNTHROID|75 mcg|CVS-0012|SilverScript Employer PDP sponsored by Loudoun County Public Schools ...|500 Commerce Blvd, St Louis, MO 63101|26021|2703|7973.85|29.5
+00074-3727-90|SYNTHROID|100 mcg|CVS-0013|Empire Plan Medicare Rx sponsored by the New York State Health Insura...|12 Oak Road, Chicago, IL 60601|26022|2876|8484.20|29.5
+00074-3727-90|SYNTHROID|112 mcg|CVS-DUAL-03|Value Formulary|88 Pine Drive, Boston, MA 02108|106-25954B 070126;602 4T Platinum|3049|5488.20|18.0
+00074-3727-90|SYNTHROID|125 mcg|CVS_0015|Aetna Standard Plan|440 Harbor Way, Seattle, WA 98101||3222|8216.10|25.5

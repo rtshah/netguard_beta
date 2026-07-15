@@ -1,9 +1,9 @@
 {
-  "contract_id": "ABBV-SYNTHROID-OPTUM-PREMIUM",
-  "contract_name": "AbbVie SYNTHROID \u2014 Optum Rx Premium / Premium Standard Formulary",
+  "contract_id": "ABBV-SYNTHROID-UHC",
+  "contract_name": "AbbVie SYNTHROID \u2014 UnitedHealthcare PDL",
   "manufacturer": "AbbVie Inc.",
   "counterparty": {
-    "name": "Optum Rx",
+    "name": "UnitedHealthcare",
     "entity_type": "pbm"
   },
   "effective_start": "2026-01-01",
@@ -11,7 +11,10 @@
   "lookback_months": 12,
   "payment_terms_days": 60,
   "covered_formularies": [
-    "*"
+    "00026000",
+    "00026005",
+    "DEMO-048_UHC_CommercialPDL",
+    "WF11818409-D"
   ],
   "products": [
     {
@@ -27,8 +30,8 @@
             "step_therapy": "allowed",
             "quantity_limit": "allowed"
           },
-          "rebate_rate_pct": 31.0,
-          "notes": "Optum Premium and Premium Standard templates. Wildcard join; demo files: 005_Michigan_OptumRx, 006_Eaton_OptumRx, 007_Wespath_OptumRx, 008_MPSERS_OptumRx, 009_TrinityHealth_OptumRx. Compliant demo terms (all UM allowed)."
+          "rebate_rate_pct": 28.0,
+          "notes": "UHC commercial Access 4-Tier and Medicare PDP/MAPD lists. IDs listed for joinable formularies. Additional demo files without printed IDs: 048_UHC_CommercialPDL. Compliant demo terms (all UM allowed)."
         }
       ]
     }

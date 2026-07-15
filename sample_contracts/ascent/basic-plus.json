@@ -11,7 +11,7 @@
   "lookback_months": 6,
   "payment_terms_days": 30,
   "covered_formularies": [
-    "*"
+    "DEMO-060_Highmark_Commercial"
   ],
   "products": [
     {
