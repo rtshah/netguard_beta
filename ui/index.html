@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetGuard — Validation Queue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14201c;
+      --muted: #5a6b63;
+      --line: #d5ddd8;
+      --paper: #f3f5f2;
+      --panel: #ffffff;
+      --ok: #1f6b4a;
+      --ok-bg: #e5f2eb;
+      --bad: #9b2c2c;
+      --bad-bg: #f8e8e8;
+      --warn: #8a5a12;
+      --warn-bg: #f7efd9;
+      --accent: #0d5c63;
+      --accent-soft: #e4f1f2;
+      --shadow: 0 1px 0 rgba(20, 32, 28, 0.04);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #e8f0ec 0%, transparent 55%),
+        radial-gradient(900px 400px at 100% 0%, #e7eef0 0%, transparent 50%),
+        var(--paper);
+      min-height: 100vh;
+    }
+    .shell { max-width: 1280px; margin: 0 auto; padding: 28px 24px 48px; }
+    header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 16px; margin-bottom: 28px; border-bottom: 1px solid var(--line); padding-bottom: 20px;
+    }
+    .brand {
+      font-family: "Newsreader", Georgia, serif; font-size: 2rem; font-weight: 600;
+      letter-spacing: -0.02em; margin: 0; line-height: 1.1;
+    }
+    .brand span { color: var(--accent); }
+    .subtitle { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
+    .cycle {
+      font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; color: var(--muted);
+      background: var(--panel); border: 1px solid var(--line); padding: 8px 12px; white-space: nowrap;
+    }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+    .stat { background: var(--panel); border: 1px solid var(--line); padding: 16px 18px; box-shadow: var(--shadow); }
+    .stat .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px; }
+    .stat .value { font-family: "Newsreader", Georgia, serif; font-size: 1.85rem; font-weight: 600; line-height: 1; }
+    .stat .hint { margin-top: 8px; font-size: 0.8rem; color: var(--muted); }
+    .stat.ok .value { color: var(--ok); }
+    .stat.bad .value { color: var(--bad); }
+    .stat.warn .value { color: var(--warn); }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+    select, input[type="search"] {
+      font: inherit; border: 1px solid var(--line); background: var(--panel);
+      color: var(--ink); padding: 8px 10px; min-height: 38px;
+    }
+    input[type="search"] { min-width: 220px; flex: 1; }
+    .chip { font-size: 0.78rem; font-family: "IBM Plex Mono", monospace; color: var(--muted); margin-left: auto; }
+    .layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; align-items: start; }
+    .panel { background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow); min-height: 420px; }
+    .panel h2 {
+      margin: 0; padding: 14px 16px; font-size: 0.8rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); border-bottom: 1px solid var(--line);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th {
+      text-align: left; font-weight: 500; color: var(--muted); font-size: 0.72rem;
+      text-transform: uppercase; letter-spacing: 0.05em; padding: 10px 12px;
+      border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--panel);
+    }
+    td { padding: 11px 12px; border-bottom: 1px solid #e8eeea; vertical-align: top; }
+    tbody tr { cursor: pointer; transition: background 120ms ease; }
+    tbody tr:hover { background: #f7faf8; }
+    tbody tr.active { background: var(--accent-soft); }
+    .table-wrap { max-height: 620px; overflow: auto; }
+    .pill {
+      display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 0.7rem;
+      padding: 3px 7px; border-radius: 2px; white-space: nowrap;
+    }
+    .pill.compliant { background: var(--ok-bg); color: var(--ok); }
+    .pill.non_compliant { background: var(--bad-bg); color: var(--bad); }
+    .pill.indeterminate { background: var(--warn-bg); color: var(--warn); }
+    .mono { font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; }
+    .muted { color: var(--muted); }
+    .detail-body { padding: 16px 18px 22px; }
+    .detail-empty { padding: 48px 24px; text-align: center; color: var(--muted); }
+    .verdict-hero { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 18px; }
+    .verdict-hero h3 { margin: 0 0 6px; font-family: "Newsreader", Georgia, serif; font-size: 1.45rem; font-weight: 600; }
+    .kv { display: grid; grid-template-columns: 120px 1fr; gap: 8px 12px; font-size: 0.9rem; margin-bottom: 18px; }
+    .kv dt { color: var(--muted); }
+    .kv dd { margin: 0; word-break: break-word; }
+    .section-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin: 0 0 8px; }
+    .fail-list { list-style: none; padding: 0; margin: 0 0 18px; }
+    .fail-list li {
+      font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; padding: 8px 10px;
+      border: 1px solid var(--line); margin-bottom: 6px; background: #fbfcfb;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+    button { font: inherit; border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 8px 12px; cursor: pointer; }
+    button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    button:disabled { opacity: 0.45; cursor: not-allowed; }
+    .note { margin-top: 12px; font-size: 0.78rem; color: var(--muted); }
+    @media (max-width: 960px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .layout { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div>
+        <h1 class="brand">Net<span>Guard</span></h1>
+        <p class="subtitle">Validation queue — contract · formulary · rebate claim</p>
+      </div>
+      <div class="cycle">Q1 2026 · SYNTHROID · mock UI</div>
+    </header>
+    <section class="stats" id="stats"></section>
+    <div class="toolbar">
+      <select id="filterGpo" aria-label="Filter by GPO"></select>
+      <select id="filterVerdict" aria-label="Filter by verdict">
+        <option value="all">All verdicts</option>
+        <option value="non_compliant">Non-compliant</option>
+        <option value="indeterminate">Indeterminate / review</option>
+        <option value="compliant">Compliant</option>
+      </select>
+      <input type="search" id="search" placeholder="Search plan, formulary, contract…" />
+      <span class="chip" id="rowCount"></span>
+    </div>
+    <div class="layout">
+      <section class="panel">
+        <h2>Queue</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>GPO</th><th>Plan</th><th>Verdict</th><th>Claimed $</th><th>Issue</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </section>
+      <aside class="panel" id="detail">
+        <h2>Line detail</h2>
+        <div class="detail-empty">Select a row to inspect the validation.</div>
+      </aside>
+    </div>
+  </div>
+  <script>
+    const money = (n) =>
+      n == null || Number.isNaN(n) ? "—" :
+      new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
+    const label = { compliant: "Compliant", non_compliant: "Non-compliant", indeterminate: "Indeterminate" };
+    let DATA = { summary: {}, rows: [] };
+    let selectedId = null;
+
+    function issueText(r) {
+      if (r.failed_checks?.length) return r.failed_checks[0].replace(/^[^:]+:/, "");
+      if (r.scope_gate_reason) return r.scope_gate_reason;
+      if (r.review_reasons?.length) return r.review_reasons[0];
+      return r.verdict === "compliant" ? "—" : "needs review";
+    }
+
+    function filtered() {
+      const gpo = document.getElementById("filterGpo").value;
+      const verdict = document.getElementById("filterVerdict").value;
+      const q = document.getElementById("search").value.trim().toLowerCase();
+      return DATA.rows.filter((r) => {
+        if (gpo !== "all" && r.submitter_gpo !== gpo) return false;
+        if (verdict !== "all" && r.verdict !== verdict) return false;
+        if (!q) return true;
+        return [r.plan_id, r.plan_id_raw, r.formulary_id, r.contract_id, r.counterparty, r.product, ...(r.failed_checks || [])]
+          .join(" ").toLowerCase().includes(q);
+      });
+    }
+
+    function renderStats() {
+      const rows = DATA.rows;
+      const claimed = rows.reduce((s, r) => s + (r.rebate_amount_claimed || 0), 0);
+      const payable = rows.filter((r) => r.verdict === "compliant").reduce((s, r) => s + (r.rebate_amount_claimed || 0), 0);
+      const atRisk = rows.filter((r) => r.verdict === "non_compliant").reduce((s, r) => s + (r.rebate_amount_claimed || 0), 0);
+      const review = rows.filter((r) => r.verdict === "indeterminate").reduce((s, r) => s + (r.rebate_amount_claimed || 0), 0);
+      document.getElementById("stats").innerHTML = `
+        <div class="stat"><div class="label">Claimed this cycle</div><div class="value">${money(claimed)}</div><div class="hint">${rows.length} submitting plans</div></div>
+        <div class="stat ok"><div class="label">Payable (compliant)</div><div class="value">${money(payable)}</div><div class="hint">${DATA.summary.compliant ?? 0} lines</div></div>
+        <div class="stat bad"><div class="label">At risk</div><div class="value">${money(atRisk)}</div><div class="hint">${DATA.summary.non_compliant ?? 0} non-compliant</div></div>
+        <div class="stat warn"><div class="label">Under review</div><div class="value">${money(review)}</div><div class="hint">${DATA.summary.indeterminate ?? 0} indeterminate</div></div>`;
+    }
+
+    function renderTable() {
+      const rows = filtered();
+      const rank = { non_compliant: 0, indeterminate: 1, compliant: 2 };
+      rows.sort((a, b) => (rank[a.verdict] ?? 9) - (rank[b.verdict] ?? 9) || (b.rebate_amount_claimed || 0) - (a.rebate_amount_claimed || 0));
+      document.getElementById("rowCount").textContent = `${rows.length} shown`;
+      const tbody = document.getElementById("tbody");
+      tbody.innerHTML = rows.map((r) => {
+        const id = `${r.submitter_gpo}-${r.line_id}`;
+        return `<tr data-id="${id}" class="${id === selectedId ? "active" : ""}">
+          <td>${r.submitter_gpo || "—"}</td>
+          <td><div class="mono">${r.plan_id || r.plan_id_raw || "—"}</div><div class="muted" style="font-size:0.75rem;margin-top:2px">${r.product || "SYNTHROID"}</div></td>
+          <td><span class="pill ${r.verdict}">${label[r.verdict] || r.verdict}</span></td>
+          <td class="mono">${money(r.rebate_amount_claimed)}</td>
+          <td class="muted">${issueText(r)}</td></tr>`;
+      }).join("");
+      tbody.querySelectorAll("tr").forEach((tr) => {
+        tr.addEventListener("click", () => {
+          selectedId = tr.dataset.id;
+          renderTable();
+          renderDetail(DATA.rows.find((r) => `${r.submitter_gpo}-${r.line_id}` === selectedId));
+        });
+      });
+    }
+
+    function renderDetail(r) {
+      const el = document.getElementById("detail");
+      if (!r) {
+        el.innerHTML = `<h2>Line detail</h2><div class="detail-empty">Select a row to inspect the validation.</div>`;
+        return;
+      }
+      const fails = (r.failed_checks || []).map((f) => `<li>${f}</li>`).join("") || `<li class="muted">None</li>`;
+      el.innerHTML = `
+        <h2>Line detail</h2>
+        <div class="detail-body">
+          <div class="verdict-hero">
+            <div><h3>${r.plan_id || r.plan_id_raw}</h3><div class="muted">${r.product || "SYNTHROID"} · ${r.ndc || "no NDC"}</div></div>
+            <span class="pill ${r.verdict}">${label[r.verdict] || r.verdict}</span>
+          </div>
+          <dl class="kv">
+            <dt>GPO / PBM</dt><dd>${r.submitter_gpo} · ${r.counterparty || "—"}</dd>
+            <dt>Contract</dt><dd class="mono">${r.contract_id || "—"}</dd>
+            <dt>Formulary</dt><dd class="mono">${r.formulary_id || "—"}</dd>
+            <dt>Coverage</dt><dd>${r.coverage_status || "—"}</dd>
+            <dt>Position</dt><dd>${r.interpreted_position || "—"}</dd>
+            <dt>UM flags</dt><dd class="mono">${(r.um_present || []).join(", ") || "—"}</dd>
+            <dt>Claimed rate</dt><dd class="mono">${r.claimed_rate != null ? r.claimed_rate + "%" : "—"}</dd>
+            <dt>Earned rate</dt><dd class="mono">${r.earned_rate != null ? r.earned_rate + "%" : "—"}</dd>
+            <dt>Claimed $</dt><dd class="mono">${money(r.rebate_amount_claimed)}</dd>
+            <dt>Gate</dt><dd>${r.scope_gate_passed ? "passed" : (r.scope_gate_reason || "failed")}</dd>
+          </dl>
+          <p class="section-label">Failed checks</p>
+          <ul class="fail-list">${fails}</ul>
+          <div class="actions">
+            <button class="primary" type="button" disabled>Confirm</button>
+            <button type="button" disabled>Override</button>
+            <button type="button" disabled>Draft dispute</button>
+          </div>
+          <p class="note">Mock UI — actions stubbed. Data from Module 04 <span class="mono">output/compliance/</span>.</p>
+        </div>`;
+    }
+
+    function setupFilters() {
+      const sel = document.getElementById("filterGpo");
+      sel.innerHTML = `<option value="all">All GPOs / PBMs</option>`;
+      [...new Set(DATA.rows.map((r) => r.submitter_gpo).filter(Boolean))].sort().forEach((g) => {
+        const opt = document.createElement("option"); opt.value = g; opt.textContent = g; sel.appendChild(opt);
+      });
+      document.getElementById("filterVerdict").value = "non_compliant";
+      ["filterGpo", "filterVerdict", "search"].forEach((id) => {
+        document.getElementById(id).addEventListener("input", renderTable);
+        document.getElementById(id).addEventListener("change", renderTable);
+      });
+    }
+
+    async function boot() {
+      try {
+        const res = await fetch("data.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("Could not load data.json");
+        DATA = await res.json();
+      } catch (err) {
+        document.getElementById("stats").innerHTML =
+          `<div class="stat bad"><div class="label">Load error</div><div class="value" style="font-size:1rem">Serve ui/ over HTTP</div><div class="hint">python -m netguard.ui_server</div></div>`;
+        return;
+      }
+      setupFilters(); renderStats(); renderTable();
+    }
+    boot();
+  </script>
+</body>
+</html>

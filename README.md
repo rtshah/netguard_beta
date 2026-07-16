@@ -141,6 +141,20 @@ Code: `entities.py`, `compliance_schema.py`, `compliance_engine.py`,
 `placement_rules.py`, `placement_llm.py`, `verdict_cache.py`,
 `formulary_index.py`, `compliance_run.py`, `compliance_cli.py`.
 
+## Module 07: UI mock (early / incomplete)
+
+Thin validation-queue mock over Module 04 results. No disputes, analytics, or
+writes yet — just browse PBM → plan → verdict with a detail panel.
+
+```bash
+# After compliance run
+python -m netguard.compliance_cli run
+python -m netguard.ui_server
+# open http://127.0.0.1:8765/
+```
+
+Files: `ui/index.html`, `ui/data.json`, `netguard/ui_server.py`.
+
 ## Configuration (env vars)
 
 | Var | Default | Meaning |
